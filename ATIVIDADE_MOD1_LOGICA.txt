@@ -1,0 +1,4 @@
+Física		Matemática 	Química
+1 Platão	Sócrates	Platão	
+2 Sócrates	Aristóteles	Aristóteles
+3 Aristóteles	Platão		Sócrates
