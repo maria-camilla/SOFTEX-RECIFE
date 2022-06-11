@@ -1,0 +1,5 @@
+Atribuindo números e letras as fileiras de alunos, como o jogo batalha naval, foi possível enxergar que:
+
+- O professor distribuiu os alunos de modo que a fileira tivesse o padrão 4x2
+- Ou seja, 4m+2p ou 4p+2m
+- A fileira "E5" com a troca de alunos apresentou um padrão 3m+3p e foi assim que o professor descobriu
