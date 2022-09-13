@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOFTEX - VOTAÇÃO</title>
+    </head>
+    </html>
+<body>
+    <script type="text/javascript">
+        var CANDIDATO = parseInt(prompt("Digite o número do seu candidato!"))
+        var SOMA = (VOTOS_NULOS+VOTOS_X+VOTOS_Y+VOTOS_Z)
+        switch(CANDIDATO) {
+            case (889):
+                alert("Você votou no candidato X!");
+                var VOTOS_X=+1;
+                break;
+            case (847):
+                alert("Você votou em candidato Y!");
+                var VOTOS_Y=+1;
+                break;
+            case (515):
+                alert("Você votou em candidato Z!");
+                var VOTOS_Z=+1;
+                break;
+            case (0):
+                alert("Você anulou seu voto!");
+                var VOTOS_NULOS=+1;
+                break;
+            default:
+                alert("Erro! Digite um número válido");
+                var VOTOS_NULOS=+1;
+        }
+        alert(("Deseja finalizar a votação?") [1] ("SIM") [2] ("NÃO"))
+            if (finalizar==1) {
+                document.write("O número total de votos foi:" + SOMA)
+                document.write("O nº de votos do candidato X foi:" + VOTOS_X)
+                document.write("O nº de votos do candidato Y foi:" + VOTOS_Y)
+                document.write("O nº de votos do candidato Z foi:" + VOTOS_Z)
+                document.write("O nº de votos nulos foi:" + VOTOS_NULOS)
+            }
+                else if (finalizar==2) {
+                alert("Vote novamente!")
+            }
+                else {
+                alert("OPÇÃO INVÁLIDA!")
+            }
+    </script>
+</body>
+</html>
