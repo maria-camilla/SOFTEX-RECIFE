@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+type(df)
+dtype = float
+df = pd.read_csv('https://raw.githubusercontent.com/maria-camilla/SOFTEX-RECIFE/main/alunos.csv', sep =';')
+df.head(n=5)
+df['media']=(df['nota_1']+df['nota_2'])/2
+df.loc[(df['media'] >= 7) & (df['faltas'] < 6), 'Situacao'] = "Aprovado"
+df.loc[(df['media'] < 7) | (df['faltas'] > 6), 'Situacao'] = "Reprovado"
+df.to_csv('situacao_alunos.csv',index=False, encoding='utf-8')
+maiorFaltas=df['faltas'].max()
+mediaGeral=df['media'].mean()
+maiorNota=df['media'].max()
+print("O maior número de faltas foi:",(maiorFaltas))
+print("A média geral das notas é:", (mediaGeral))
+print("A maior nota foi:", (maiorNota))
