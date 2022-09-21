@@ -1,0 +1,26 @@
+#Crie uma classe de sua preferência com, no mínimo, uma variável, um método e um incremento.#
+#Depois, desenvolva três ou mais objetos para testar o código.#
+
+class fechadura:
+    def __init__(self, marca, tipo):
+        self.marca = marca
+        self.tipo = tipo
+        pass
+    def abrirporta(self, senha):
+        if senha == 1234:
+            print(f"A porta", {fechadura}, "está aberta, bem-vindo!\n")
+        elif senha != 1234:
+            print(f"Senha incorreta!", {fechadura}, "negou o seu acesso.\n")
+        else:
+            print("Sua fechadura não é eletrônica. Use uma chave!")
+    def descricao(self):
+        print(f"Sua fechadura é da marca,", {self.marca}, ", e é do tipo:", {self.tipo})
+f1 = fechadura("Intelbras", "Digital")
+f1.descricao()
+f1.abrirporta(senha= 1234)
+f2 = fechadura("Pado", "Comum")
+f2.descricao()
+f2.abrirporta(senha= "a")
+f3 = fechadura("Elsys", "Digital")
+f3.descricao()
+f3.abrirporta(senha=1233)
