@@ -1,0 +1,65 @@
+package class;
+import java.io.Serializable;
+public class aluno_class implements Serializable {
+    private String nome;
+    private int ano;
+    private static final long serialVersionUID=[1];
+    public aluno_class(String nome, int ano){
+        this.nome = nome;
+        this.ano = ano;
+    }
+    public String getnome(){
+        return nome;
+    }
+    public void setnome(String nome){
+        this.nome = nome;
+    }
+    public int getano(){
+        return ano;
+    }
+    public void setano(int ano){
+        this.ano = ano;
+    }
+    writecode() {
+        console.log(this._nome + 'estuda no ' + this._ano + 'ano.');
+        }
+}
+
+// PASSO 2//
+
+import java.io.*;
+import class.aluno_class;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+public class SerializableApp{
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        aluno_class novo_Aluno = new aluno_class("João", "7");
+        FileOutputStream arqOutput = new FileOutputStream("class/novo_Aluno.flow");
+        ObjectOutputStream objOutput = new ObjectOutputStream(arqOutput);
+        objOutput.writeObject(novo_Aluno);
+        objOutput.close();
+    }
+}
+
+// PASSO 3//
+
+import java.io.*;
+import class.aluno_class;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+public class DeserializableApp{
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        FileInputStream arqInput = new FileInputStream("class/novo_Aluno.flow");
+        ObjectInputStream objInput = new ObjectInputStream(arqInput);
+        aluno_class which_aluno = (aluno_class) objInput.readObject();
+        objInput.close();
+    }
+}
