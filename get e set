@@ -1,0 +1,20 @@
+//Crie uma classe e insira nela, no mínimo, dois atributos, os quais devem ter um método acessor (get) e um método modificador (set) para cada. Defina um objeto para cada atributo e elabore um construtor para criar alguma regra.//
+//Utilizei a linguagem JavaScript//
+
+class aluno {
+    constructor(nome, ano) {
+        this._nome = nome;
+        this._ano = ano;
+    }
+    get nome(){
+        return this._nome.toUpperCase();
+    }
+    set nome(novoNome){
+        this._nome = novoNome;
+    }
+writecode() {
+    console.log(this._name + 'estuda no ' + this._ano + 'ano.');
+    }
+}
+let cory =  new aluno('João', '7');
+cory.writecode();
