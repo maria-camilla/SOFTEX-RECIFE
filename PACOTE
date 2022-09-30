@@ -19,3 +19,25 @@ public class CadastroArquivo {
     Arquivo novoArquivo = new Arquivo();
 }
 }
+
+package br.com.consultadocumentos.pacote;
+public class NovoDocumento {
+    string nome;
+    /**
+     *
+     */
+    string assunto;
+    public NovoDocumento(string nome, string assunto) {
+        this.nome = nome;
+        this.assunto = assunto;
+    }
+    public string getAssunto() {
+        return assunto;
+    }
+    public void setAssunto(string assunto) {
+        this.assunto = assunto;
+    }
+    public class NovoDocumento {
+        Documento novoDocumento = new Documento();
+    }
+    }
