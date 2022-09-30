@@ -1,0 +1,21 @@
+package br.com.arquivomorto.pacote;
+public class CadastroArquivo {
+    string nome;
+    /**
+     *
+     */
+    int codigo;
+    public CadastroArquivo(string nome, int codigo) {
+        this.nome = nome;
+        this.codigo = codigo;
+    }
+    public int getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+public class CadastroArquivo {
+    Arquivo novoArquivo = new Arquivo();
+}
+}
