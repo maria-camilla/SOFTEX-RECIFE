@@ -1,0 +1,16 @@
+//Crie uma situação em que ocorra uma exceção dentro de um código. Utilize try/catch para realizar a captura e tratamento dessa exceção. //
+//Utilizei a linguagem JavaScript//
+
+function UserException(message) {
+    this.message = message;
+    this.name = "UserException";
+}
+try {
+    let nota = document.getElementById("nota_aluno").value;
+    if(nota < 0 || nota > 10){
+        throw new UserException("Nota deve ser maior que zero e menor que 10!");
+    }
+} catch (error) {
+    console.log(error.name);
+    console.log(error.message);
+}
