@@ -1,0 +1,9 @@
+PADRÃO DE PROJETO
+
+Padrão Factory
+- Se divide em, simple factory, factory method e abstract factory.
+- É um padrão de projeto criacional que encapsula criação de objetos.
+- É ideal quando queremos criar objetos similares, com apenas seus detalhes diferentes.
+- Deve ser usado para criar objetos em vez da chamada direta ao construtor (operador new), que é prejudicial.
+- Uma desvantagem é o alto número de classes no código, podendo sobrecarregar o sistema.
+- Pode ser aplicado quando você não quer que o usuário tenha que saber de cada subclasse.
