@@ -1,0 +1,14 @@
+//Estruture três códigos, os quais devem conter uma função de manipulação de string que obtenha resultado.//
+//Utilizei a linguagem JavaScript//
+
+let listaFeira = "Pão; Leite; Ovos; Manteiga; Queijo";
+let arraylistaFeira = listaFeira.split(";");
+console.log(arraylistaFeira)
+
+const palavra="tamborim";
+console.log(palavra.toUpperCase())
+console.log(palavra.toLowerCase())
+
+let nome = "Camilla"
+let sobrenome = " Oliveira"
+nome += sobrenome
