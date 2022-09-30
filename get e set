@@ -12,6 +12,12 @@ class aluno {
     set nome(novoNome){
         this._nome = novoNome;
     }
+    get ano(){
+        return this._ano.toUpperCase();
+    }
+    set ano(anoAluno){
+        this._ano = anoAluno;
+    }
 writecode() {
     console.log(this._name + 'estuda no ' + this._ano + 'ano.');
     }
