@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOFTEX - AULA TERÇA</title>
+    </head>
+    </html>
+<body>
+    <script type="text/javascript">
+        var NOTA1 = parseFloat(prompt("Qual sua nota na unidade I?"))
+        var NOTA2 = parseFloat(prompt("Qual sua nota na unidade II?"))
+        var NOTA3 = parseFloat(prompt("Qual sua nota na unidade III?"))
+        var media = (NOTA1+NOTA2+NOTA3)/3
+        var resultado = (media >= 7) ? "Aprovado!" : "Reprovado!"
+        document.write(resultado)
+
+        var NOTA1 = parseFloat(prompt("Qual sua nota na unidade I?"))
+        var NOTA2 = parseFloat(prompt("Qual sua nota na unidade II?"))
+        var notaMinima = 21 -= (NOTA1 + NOTA2)
+        if (notaMinima > 10) {
+            document.write("Aluno reprovado por média!!!")
+        } 
+            else 
+        {
+            document.write("Nota miníma para aprovação: " + notaMinima)
+        }
+    </script>
+</body>
+</html>
