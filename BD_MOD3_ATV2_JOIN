@@ -1,0 +1,40 @@
+CREATE TABLE Pessoa
+(
+    ID_Pessoa integer PRIMARY KEY AUTOINCREMENT,
+    Nome varchar(255),
+    Endereco varchar(255),
+    Cidade varchar(255)
+);
+
+CREATE TABLE Carro
+(
+    ID_Carro integer PRIMARY KEY AUTOINCREMENT,
+    Nome varchar(255),
+    Marca varchar(255),
+    ID_Pessoa integer,
+    CONSTRAINT fk_PesCarro FOREIGN KEY (ID_Pessoa) REFERENCES Pessoa (ID_Pessoa)
+);
+_________________________________________________________________________________________
+**INNER JOIN**
+
+SELECT p.id, p.nome, p.idade, d.estado_civil
+FROM pessoas p
+INNER JOIN dados_adicionais d ON p.id = d.id
+_________________________________________________________________________________________
+**LEFT JOIN**
+
+SELECT p.id, nome, idade, estado_civil
+FROM pessoas p
+LEFT JOIN dados_adicionais d ON p.id = d.id
+_________________________________________________________________________________________
+**RIGHT JOIN**
+
+SELECT C.NOMECARGO [CARGO], F.NOMEFUNCIONARIO AS [FUNCIONÁRIO], F.SALARIOFUNCIONARIO AS [SALÁRIO]
+FROM FUNCIONARIO AS F
+RIGHT JOIN CARGO AS C ON F.IDCARGO = C.IDCARGO
+_________________________________________________________________________________________
+**FULL JOIN**
+
+SELECT C.NOMECARGO [CARGO], F.NOMEFUNCIONARIO AS [FUNCIONÁRIO], F.SALARIOFUNCIONARIO AS [SALÁRIO]
+FROM FUNCIONARIO AS F
+FULL JOIN CARGO AS C ON F.IDCARGO = C.IDCARGO
