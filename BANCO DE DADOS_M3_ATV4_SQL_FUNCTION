@@ -1,0 +1,12 @@
+#Crie uma função que some todos os clientes cadastrados em uma loja durante um dia.#
+
+CREATE FUNCTION cadastrados_dia(@dt datetime)
+RETURNS TABLE
+AS
+RETURN (SELECT *
+	FROM CLIENTE
+	WHERE dataCadastro = @dt)
+
+#Invocando a função#
+
+SELECT * FROM cadastrados_dia('2022-12-16')
