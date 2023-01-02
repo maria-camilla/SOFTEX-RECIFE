@@ -1,0 +1,12 @@
+//Sem usar bibliotecas, crie um projeto simples em Node.js que seja capaz de responder requisições HTTP.Explique como rodar e testar.
+
+const {createServer} = require("http");
+const server = createServer();
+const portAcess = process.env.PORT || 3000;
+server.on("request", (request, response)=>{
+  response.end("Hello, world!")
+});
+
+server.listen(portAcess, ()=>{
+   console.log(`O servidor utilizado foi ${portAcess}.`);
+   });
