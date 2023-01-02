@@ -1,0 +1,15 @@
+const http = require("http");
+const host = 'localhost';
+const port = 8080;
+
+server.get('/rota', (req, res)=>{
+  res.send("")
+})
+
+server.post('/rota', (req, res)=>{
+  res.send("");
+})
+  
+server.listen(portAcess, ()=>{
+  console.log(`URL: http://localhost:${portAcess}`);
+});
