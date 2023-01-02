@@ -1,5 +1,5 @@
-const http = require("http");
-const host = 'localhost';
+const express = require("express");
+const server = express();
 const port = 8080;
 
 server.get('/rota', (req, res)=>{
@@ -11,5 +11,5 @@ server.post('/rota', (req, res)=>{
 })
   
 server.listen(portAcess, ()=>{
-  console.log(`URL: http://localhost:${portAcess}`);
+  console.log(`URL: http://localhost:${port}`);
 });
