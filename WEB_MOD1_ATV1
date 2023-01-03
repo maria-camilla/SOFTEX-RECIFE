@@ -1,0 +1,45 @@
+REQUISIÇÃO
+
+POST /dadosCliente HTTP/1.1
+Host: www.example.org
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: nnn
+
+<?xml version="1.0"?>
+
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
+soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+
+<soap:Body xmlns:m="http://www.example.org/stock">
+  <m:GetCPF>
+    <m:CPF>123456789</m:CPF>
+  </m:GetCPF>
+</soap:Body>
+
+</soap:Envelope>
+
+
+
+
+RESPOSTA
+
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: nnn
+
+<?xml version="1.0"?>
+
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
+soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+
+<soap:Body xmlns:m="http://www.example.org/stock">
+  <m:GetCPFResponse>
+    <m:Nome>Luis Inacio</m:Nome>
+    <m:Endereço>Brasilia</m:Endereço>
+    <m:Telefone>13</m:Telefone>
+  </m:GetCPFResponse>
+</soap:Body>
+
+</soap:Envelope>
