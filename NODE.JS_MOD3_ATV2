@@ -1,0 +1,58 @@
+//Faça um servidor web para responder requisições com diferentes status HTTP, os quais devem estar de acordo com os parâmetros enviados pelo placeholder nas requisições. Exemplo: a rota “/listar/50” vai retornar o HTTP 404; a rota /listar/10 vai retornar o HTTP 200 com alguma string.
+
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const server = express();
+server.use(bodyParser.json());
+server.use(cors());
+const portAcess = 3000;
+
+let estados_brasil = [];
+
+app.post('/estados_brasil/add', (req, res) => {
+    let estados_brasil = req.body;
+    let pernambuco = estados_brasil.length + 1;
+    estados_brasil.push(estados_brasil);
+    estados_brasil.pernambuco = pernambuco;
+    res.status(201).send(pernambuco);
+});
+app.get('/estados_brasil/ver/:id', (req, res)=> {
+    let id = req.params.id;
+    if (id > 0 && id <= estados_brasil.length){
+        res.status(200).send(estados_brasil[id-1]);
+    } else{
+        res.status(404).send('Estado não encontrado.');
+    };
+});
+app.get('/estados_brasil/ver_todos', (req, res)=>{
+    res.status(200).send(estados_brasil);
+});
+app.put('/estados_brasil/editar/:id', (req, res)=>{
+    let id = req.params.id;
+    if(id > 0 && id <= estados_brasil.length){
+        let estados_brasil = req.body;
+        estados_brasil[id-1] = estados_brasil;
+        res.status(200).send(estados_brasil);
+    } else{
+        res.status(404).send('Estado não encontrado');
+    }
+});
+app.delete('estados_brasil/remover/:id', (req, res)=>{   
+    let id = req.params.id;
+    if (id > 0 && id <= estados_brasil.length){
+        estados_brasil.splice(id-1, 1);
+        res.status(200).send('Estado removido')
+    } else{
+        res.status(404).send('Estado não encontrado');
+    }
+});
+app.all('*', (req, res)=>{
+    res.status(404).send('Página não encontrada');
+});
+
+
+server.listen(3000, ()=> {
+console.log('Ouvindo na porta 3000.')
+});
