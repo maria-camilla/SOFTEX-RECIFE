@@ -1,0 +1,58 @@
+var express = require('express');
+var app = express();
+
+app.get('/', function(req, res) {
+  res.send('Olá Mundo!');
+});
+
+app.post('/', function(req, res) {
+  res.send('Olá Galaxia!');
+});
+
+app.put('/', function(req, res) {
+  res.send('Olá Universo!');
+});
+
+app.delete('/', function(req, res) {
+  res.send('Adeus Universo!');
+});
+
+app.listen(3000, function() {
+  console.log('App de Exemplo escutando na porta 3000!');
+})
+
+_______________________________________________________________________________________________________________________________________
+
+
+-WSDL é uma notação XML para descrever um serviço da web. Uma definição WSDL indica a um cliente como compor uma solicitação de 
+serviço da web e descreve a interface que é fornecida pelo provedor de serviços da web.
+
+-Requisições HTTP são mensagens enviadas pelo cliente para iniciar uma ação no servidor.
+
+-Um método HTTP, , que descreve a ação a ser executada. 
+GET
+O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+
+HEAD
+O método HEAD solicita uma resposta de forma idêntica ao método GET, porém sem conter o corpo da resposta.
+
+POST
+O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+
+PUT
+O método PUT substitui todas as atuais representações do recurso de destino pela carga de dados da requisição.
+
+DELETE
+O método DELETE remove um recurso específico.
+
+CONNECT
+O método CONNECT estabelece um túnel para o servidor identificado pelo recurso de destino.
+
+OPTIONS
+O método OPTIONS é usado para descrever as opções de comunicação com o recurso de destino.
+
+TRACE
+O método TRACE executa um teste de chamada loop-back junto com o caminho para o recurso de destino.
+
+PATCH
+O método PATCH é utilizado para aplicar modificações parciais em um recurso.
