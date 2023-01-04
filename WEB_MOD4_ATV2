@@ -1,0 +1,46 @@
+//No Node.js, faça o código de um controller que deve implementar os quatro pontos do CRUD, como no exemplo apresentado no hipertexto. 
+
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.status(200).json({message: "Hello from my-express-app!"});
+});
+
+const PORT = 8080;
+app.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}`);
+});
+
+____________________________________________________________________________
+
+exports.createOneRequest = (req, res) => {
+    res.status(201).json({message: "New resource created!"});
+}
+
+exports.readOneRequest = (req, res) => {
+    res.status(302).json({message: "Resource found!"});
+}
+
+exports.updateOneRequest = (req, res) => {
+    res.status(301).json({message: "Resource updated!"});
+}
+
+exports.deleteOneRequest = (req, res) => {
+    res.status(202).json({message: "Resource deleted!"});
+}
+
+____________________________________________________________________________
+
+const express = require('express');
+const urlRoutes = express.Router();
+
+const controller = require('../controllers/user.controller');
+
+urlRoutes.post('/', controller.createOneRequest);
+urlRoutes.get('/:id', controller.readOneRequest);
+urlRoutes.put('/:id', controller.updateOneRequest);
+urlRoutes.delete('/:id', controller.deleteOneRequest);
+
+module.exports = urlRoutes;
