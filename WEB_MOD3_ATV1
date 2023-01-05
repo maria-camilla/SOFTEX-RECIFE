@@ -1,0 +1,108 @@
+**Demonstre como fazer as quatro operações de CRUD e suas rotas para obter o recurso de um livro que está no estoque de uma livraria. Um livro possui informações como nome, autor e ISBN.**
+
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+const port = 3000
+
+app.use(bodyParser.json());
+
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
+
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta de conexão ${port}.`)
+})
+
+__________________________________________________________________________________
+
+const Pool = require('pg').Pool
+const pool = new Pool({
+  user: 'camilla',
+  host: 'localhost',
+  database: 'sistema_livraria',
+  password: 'gildovigor',
+  port: 5432,
+})
+
+const getBook = (req, res) => {
+    pool.query('SELECT * FROM books ORDER BY name DESC', (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+  
+  const getBookByISBN = (req, res) => {
+    const ISBN = parseInt(request.params.id)
+  
+    pool.query('SELECT * FROM books WHERE ISBN = $1', [ISBN], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+  
+  const createBook = (req, res) => {
+    const { nome, ISBN, autor } = request.body
+  
+    pool.query('INSERT INTO books (nome, ISBN, autor) VALUES ($1, $2, $3)', [nome, ISBN, autor], (error, result) => {
+      if (error) {
+        throw error
+      }
+      response.status(201).send(`Livro adicionado com sucesso.`)
+    })
+  }
+  
+  const updateBook = (req, res) => {
+    const id = parseInt(request.params.id)
+    const { nome, ISBN, autor } = request.body
+  
+    pool.query(
+      'UPDATE books SET nome = $1, ISBN = $2, autor = $3 WHERE id = $4',
+      [nome, ISBN, autor, id],
+      (error, result) => {
+        if (error) {
+          throw error
+        }
+        response.status(200).send(`Livro ${id} atualizado com sucesso.`)
+      }
+    )
+  }
+  
+  const deletePessoa = (req, res) => {
+    const id = parseInt(request.params.id)
+  
+    pool.query('DELETE FROM books WHERE id = $1', [id], (error, result) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).send(`Livro removido com sucesso com o identificador: ${id}`)
+    })
+  }
+  
+  module.exports = {
+    getBook,
+    getBookByISBN,
+    createBook,
+    updateBook,
+    deleteBook,
+  
+}
+
+__________________________________________________________________________________
+
+const repository = require('./repository')
+app.get('/pessoas', repository.getPessoas)
+app.get('/pessoas/:id', repository.getPessoaById)
+app.post('/pessoas', repository.createPessoa)
+app.put('/pessoas/:id', repository.updatePessoa)
+app.delete('/pessoas/:id', repository.deletePessoa)
+
+__________________________________________________________________________________
+
