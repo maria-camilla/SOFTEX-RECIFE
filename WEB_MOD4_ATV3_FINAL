@@ -1,0 +1,123 @@
+APP
+
+const express = require('express');
+const alunoController = require('./controllers/alunoController');
+const cursoController = require('./controllers/cursoController');
+
+const app = express();
+app.use(express.json());
+
+const alunoRouter = express.Router();
+
+alunoRouter
+    .route('/api/aluno')
+    .get(alunoController.getAll)
+    .post(alunoController.createOne);
+
+alunoRouter
+    .route('/api/aluno/:id')
+    .get(alunoController.getOne)
+    .patch(alunoController.updateOne)
+    .delete(alunoController.deleteOne);
+
+const cursoRouter = express.Router();
+
+cursoRouter.route('/api/curso')
+    .get(cursoController.getAll)
+    .post(cursoController.createOne);
+
+cursoRouter.route('/api/curso/:id')
+    .get(cursoController.getOne)
+    .patch(cursoController.updateOne)
+    .delete(cursoController.deleteOne);
+
+app.use(alunoRouter);
+app.use(cursoRouter);
+
+app.listen(3000, () => {
+    console.log('our app is running locally...');
+});
+
+__________________________________________________________________________
+
+CONTROLLER
+
+exports.getAll = (req, res) => {
+    res.status(200).json({
+        status: 'success',
+        data: {
+            alunos: [
+                {
+                    id: 1,
+                    nome: 'Fulano Silva',
+                    idade: 27
+                },
+                {
+                    id: 2,
+                    nome: 'Ciclano Almeida',
+                    idade: 32
+                }
+            ]
+        }
+    });
+};
+
+exports.getOne = (req, res) => {
+    res.status(200).json({
+        status: 'success',
+        data: {
+            aluno: {
+                id: req.params.id,
+                nome: 'Fulano Silva',
+                idade: 27
+            }
+        }
+    });
+};
+
+exports.createOne = (req, res) => {
+    const alunoId = Math.floor(Math.random() * 10);
+    const aluno = Object.assign({ id: alunoId }, req.body);
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            aluno
+        }
+    });
+};
+
+exports.updateOne = (req, res) => {
+    const alunoId = req.params.id;
+    const aluno = Object.assign({ id: alunoId }, req.body);
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            aluno
+        }
+    });
+};
+
+exports.deleteOne = (req, res) => {
+    res.status(204).json({
+        status: 'success',
+        data: null,
+    });
+};
+__________________________________________________________________________
+
+ROUTER
+
+const alunoRouter = express.Router();
+
+alunoRouter
+    .route('/api/aluno')
+    .get(alunoController.getAll)
+    .post(alunoController.createOne);
+
+alunoRouter
+    .route('/api/aluno/:id')
+    .get(alunoController.getOne)
+    .patch(alunoController.updateOne)
+    .delete(alunoController.deleteOne);
